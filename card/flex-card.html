@@ -1,0 +1,185 @@
+<!DOCTYPE>
+<html>
+<head>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-color: #1B2431;
+            color: white;
+        }
+        
+        
+        .dashboard-card-outline{
+            width: 310px;
+            background-color: #2399F1;
+            border-radius: 10px;
+            box-shadow : 0 5px 20px #272532;
+            margin: 20px;
+        }
+        
+        .dashboard-card-outline > .body{
+            display: flex;
+            height: 140px;
+            flex-direction: column;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        
+        .dashboard-card-outline > .body > .header{
+            display: flex;
+            height: 48px;
+            padding-top: 8px;
+            padding-right: 10px;
+        }
+        
+        .dashboard-card-outline > .body > .header > .icon{
+            display: flex;
+            flex-basis: 20%;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dashboard-card-outline > .body > .header > .icon-left{
+            display: flex;
+            flex-basis: 10%;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+        
+        .dashboard-card-outline > .body > .header > .title{
+            display: flex;
+            flex-basis: 80%;
+            flex-grow: 1;
+            align-items: center;
+        }
+        
+        .dashboard-card-outline > .body > .article{
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            position:relative;
+        }
+        
+        .dashboard-card-outline > .body > .article > .content{
+            flex-basis: 67%;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            font-size: 55px;
+        }
+        
+        .dashboard-card-outline > .body > .article > .content-small{
+            flex-basis: 67%;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            font-size: 40px;
+        }
+        
+        .dashboard-card-outline > .body > .article > .content-icon{
+            display: flex;
+            flex-basis: 20%;
+            justify-content: center;
+        }
+        
+        .dashboard-card-outline > .footer{
+            padding: 5px 5px 15px 28px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font-size: 20px;    
+        }
+        
+        .dashboard-card-outline > .body > .article:after{
+            position:absolute;
+            content:"";
+            width: 280px;
+            height:1px;
+            background: #ffd736;
+            left: 15px;
+            bottom: 4px;
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="dashboard-card-outline">
+       <div class="body">
+           <div class="header">
+               <div class="icon">
+                   <i class="fa fa-bell fa-2x" aria-hidden="true"></i>
+               </div>
+               <div class="title">
+                   Critical 알람
+               </div>    
+               <div class="icon-left">
+                   <i class="fa fa-bolt fa-2x" aria-hidden="true"></i>
+               </div>
+           </div>
+           <div class="article">
+              <div class="content">
+                  1,520      
+              </div>
+              <div class="content-icon">
+                  <i class="fa fa-arrow-circle-up fa-2x" aria-hidden="true"></i>
+              </div>
+           </div>
+       </div>
+       <div class="footer">
+           10 건 증가
+       </div>
+    </div>
+    <div class="dashboard-card-outline">
+       <div class="body">
+           <div class="header">
+               <div class="icon">
+                   <i class="fa fa-database fa-2x" aria-hidden="true"></i>
+               </div>
+               <div class="title">
+                   EMS 오라클 테이블 스페이스
+               </div>    
+               <div class="icon-left">
+                   <i class="fa fa-bolt fa-2x" aria-hidden="true"></i>
+               </div>
+           </div>
+           <div class="article">
+              <div class="content-small">
+                  118/300GB
+              </div>
+              <div class="content-icon">
+                  <i class="fa fa-arrow-circle-down fa-2x" aria-hidden="true"></i>
+              </div>
+           </div>
+       </div>
+       <div class="footer">
+           10 건 증가
+       </div>
+    </div>
+    <div class="dashboard-card-outline">
+       <div class="body">
+           <div class="header">
+               <div class="icon">
+                   <i class="fa fa-database fa-2x" aria-hidden="true"></i>
+               </div>
+               <div class="title">
+                   EMS 오라클 테이블 스페이스
+               </div>    
+               <div class="icon-left">
+                   <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+               </div>
+           </div>
+           <div class="article">
+              <div class="content-small">
+                  118/300GB
+              </div>
+              <div class="content-icon">
+                  <i class="fa fa-arrow-circle-down fa-2x" aria-hidden="true"></i>
+              </div>
+           </div>
+       </div>
+       <div class="footer">
+           10 건 증가
+       </div>
+    </div>
+</body>
+</html>

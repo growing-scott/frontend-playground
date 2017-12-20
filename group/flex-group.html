@@ -1,0 +1,423 @@
+<!DOCTYPE>
+<html>
+<head>
+    <link rel="stylesheet" href="_styles/style.css" type="text/css">
+    <link rel="stylesheet" href="_styles/simple-donut.css" type="text/css">   
+    <style>
+        body{
+            background-color: #625E65;
+        }
+        
+        .group-layout{
+            height: 94%;
+        }
+        
+        .group-outline{
+            display: flex;
+            background-color: #42444e;
+            height: 98%;
+            padding: 10px;
+        }
+        
+        .group-container{
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            background-color: #2c8ca7;
+            margin: 8px;
+            flex-grow: 1;
+            
+        }
+        
+        .group-items{
+            display: flex;
+            background-color: #2496bf;
+            padding: 5px;
+            margin: 2px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            flex-grow: 1;
+            justify-content: flex-start;
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+        
+        .group-item{
+            width: 31%;
+            height: 15%;
+            margin: 2px;
+            flex-shrink: 0;
+            text-align: center;
+            padding: 3px;
+            background-color: #65d6ff
+            
+        }
+        
+        /* column style
+        .group-items{
+            column-count: 3;
+            background-color: antiquewhite;
+            padding: 5px;
+            margin: 2px;
+        }
+        
+        .group-item{
+            padding: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        */
+        
+        .container-title{
+            flex-basis: 3%;
+            flex-shrink: 0;
+            text-align: center;
+            padding: 5px;
+            color: white;
+        }
+        
+        .group-title{
+            flex-shrink: 0;
+            text-align: center;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            height: 18%;
+            
+        }
+        
+        .circle{
+            height: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+        }
+        
+        .critical_circle{
+            width: 60px;
+            height: 34px;
+            background-color: aqua;
+            text-align: center;
+            margin: 1px;
+        }
+    
+        .device-group-search {
+            margin: 5 0 5 0;
+            text-align: right;
+            padding: 5px;
+            background-color: #5f80a0;
+            color: white;
+        }
+        
+        .btn {
+          background: #37adfd;
+/*
+          background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+          background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+          background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+          background-image: -o-linear-gradient(top, #3498db, #2980b9);
+          background-image: linear-gradient(to bottom, #3498db, #2980b9);
+*/
+/*          -webkit-border-radius: 28;*/
+/*          -moz-border-radius: 28;*/
+          border-radius: 14px;
+/*          font-family: Arial;*/
+          color: #ffffff;
+          font-size: 14px;
+          padding: 5px 10px 5px 10px;
+          text-decoration: none;
+        }
+
+        .btn:hover {
+          background: #3cb0fd;
+          background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+          text-decoration: none;
+        }
+        
+        
+        .card {
+  float: left;
+  background: #fff;
+  padding: 20px;
+  margin: 0 20px 0 0;
+}
+
+.donut-chart {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.donut-chart .slice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.donut-chart .chart-center {
+  position: absolute;
+  border-radius: 50%;
+}
+.donut-chart .chart-center span {
+  display: block;
+  text-align: center;
+}
+
+.donut-chart.chart1 {
+  width: 200px;
+  height: 200px;
+  background: #e1e1e1;
+}
+.donut-chart.chart1 .slice.one {
+  clip: rect(0 200px 100px 0);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: #50c690;
+}
+.donut-chart.chart1 .slice.two {
+  clip: rect(0 100px 200px 0);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  background: #50c690;
+}
+.donut-chart.chart1 .chart-center {
+  top: 10px;
+  left: 10px;
+  width: 180px;
+  height: 180px;
+  background: #fff;
+}
+.donut-chart.chart1 .chart-center span {
+  font-size: 40px;
+  line-height: 180px;
+  color: #50c690;
+}
+.donut-chart.chart1 .chart-center span:after {
+  content: "75%";
+}
+
+.donut-chart.chart2 {
+  width: 200px;
+  height: 200px;
+  background: #e1e1e1;
+}
+.donut-chart.chart2 .slice.one {
+  clip: rect(0 200px 100px 0);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: #48b2c1;
+}
+.donut-chart.chart2 .slice.two {
+  clip: rect(0 100px 200px 0);
+  -webkit-transform: rotate(327.6deg);
+  transform: rotate(327.6deg);
+  background: #48b2c1;
+}
+.donut-chart.chart2 .chart-center {
+  top: 25px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  background: #fff;
+}
+.donut-chart.chart2 .chart-center span {
+  font-size: 40px;
+  line-height: 150px;
+  color: #48b2c1;
+}
+.donut-chart.chart2 .chart-center span:after {
+  content: "91%";
+}
+
+.donut-chart.chart3 {
+  width: 120px;
+  height: 120px;
+  background: #353535;
+}
+.donut-chart.chart3 .slice.one {
+  clip: rect(0 120px 60px 0);
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+  background: #e1e1e1;
+}
+.donut-chart.chart3 .slice.two {
+  clip: rect(0 60px 120px 0);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  background: #e1e1e1;
+}
+.donut-chart.chart3 .chart-center {
+  top: 5px;
+  left: 5px;
+  width: 110px;
+  height: 110px;
+  background: #fff;
+}
+.donut-chart.chart3 .chart-center span {
+  font-size: 40px;
+  line-height: 110px;
+  color: #353535;
+}
+.donut-chart.chart3 .chart-center span:after {
+  content: "15%";
+}
+
+.donut-chart.chart4 {
+  width: 240px;
+  height: 240px;
+  background: #f26a4a;
+}
+.donut-chart.chart4 .slice.one {
+  clip: rect(0 240px 120px 0);
+  -webkit-transform: rotate(252deg);
+  transform: rotate(252deg);
+  background: #e1e1e1;
+}
+.donut-chart.chart4 .slice.two {
+  clip: rect(0 120px 240px 0);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  background: #e1e1e1;
+}
+.donut-chart.chart4 .chart-center {
+  top: 15px;
+  left: 15px;
+  width: 210px;
+  height: 210px;
+  background: #fff;
+}
+.donut-chart.chart4 .chart-center span {
+  font-size: 60px;
+  line-height: 210px;
+  color: #f26a4a;
+}
+.donut-chart.chart4 .chart-center span:after {
+  content: "45%";
+}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="_scripts/simple-donut-jquery.js"></script>
+    
+    
+</head>
+<body>
+    <div class="device-group-search">
+        <button class='btn'>장비 수</button>
+        <button class='btn'>가용성</button>
+        <button class='btn'>심각</button>
+        <button class='btn'>해제</button>
+    </div>
+   <div class="group-layout">
+       <div class="group-outline">
+           <div class="group-container">
+                <div class="group-items">
+                    <div class="group-item">
+                        엔키아 서버 그룹 #1
+<!--
+                        <div class="group-title">엔키아 서버 그룹 #1</div>
+                        <div class="circle">
+                            <div class="critical_circle">10</div>
+                            <div class="critical_circle">10</div>
+                            <div class="critical_circle">10</div>
+                            <div class="critical_circle">10</div>    
+                        </div>
+-->
+                    </div>
+                    <div class="group-item">엔키아 서버 그룹 #2</div>
+                    <div class="group-item">AWS 서버 그룹</div>
+                    <div class="group-item">네트워크</div>
+                    <div class="group-item">DBMS</div>
+                </div>
+                <div class="container-title">그룹</div>
+            </div>
+            <div class="group-container">
+                <div class="group-items">
+                    <div class="group-item"><div class="card">
+  <div class="donut-chart chart2">
+    <div class="slice one"></div>
+    <div class="slice two"></div>
+    <div class="chart-center">
+      <span></span>
+    </div>
+  </div>
+</div></div>
+                    <div class="group-item">네트워크</div>
+                    <div class="group-item">AWS</div>
+                    <div class="group-item">스토리지</div>
+                    <div class="group-item">DBMS</div>
+                </div>
+                <div class="container-title">분류</div>
+            </div>    
+            <div class="group-container">
+                <div class="group-items">
+                    <div class="group-item">관리서버 #1</div>
+                    <div class="group-item">관리서버 #2</div>
+                    <div class="group-item">
+                        <div id="specificChart" class="donut-size">
+                          <div class="pie-wrapper">
+                            <span class="label">
+                              <span class="num">0</span><span class="smaller">%</span>
+                            </span>
+                            <div class="pie">
+                              <div class="left-side half-circle"></div>
+                              <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-title">즐겨찾기</div>
+            </div>   
+       </div>
+       
+   </div>
+</body>
+<script>
+    /**
+     * Updates the donut chart's percent number and the CSS positioning of the progress bar.
+     * Also allows you to set if it is a donut or pie chart
+     * @param  {string}  el      The selector for the donut to update. '#thing'
+     * @param  {number}  percent Passing in 22.3 will make the chart show 22%
+     * @param  {boolean} donut   True shows donut, false shows pie
+     */
+    function updateDonutChart (el, percent, donut) {
+        percent = Math.round(percent);
+        if (percent > 100) {
+            percent = 100;
+        } else if (percent < 0) {
+            percent = 0;
+        }
+        var deg = Math.round(360 * (percent / 100));
+
+        if (percent > 50) {
+            $(el + ' .pie').css('clip', 'rect(auto, auto, auto, auto)');
+            $(el + ' .right-side').css('transform', 'rotate(180deg)');
+        } else {
+            $(el + ' .pie').css('clip', 'rect(0, 1em, 1em, 0.5em)');
+            $(el + ' .right-side').css('transform', 'rotate(0deg)');
+        }
+        if (donut) {
+            $(el + ' .right-side').css('border-width', '0.1em');
+            $(el + ' .left-side').css('border-width', '0.1em');
+            $(el + ' .shadow').css('border-width', '0.1em');
+        } else {
+            $(el + ' .right-side').css('border-width', '0.5em');
+            $(el + ' .left-side').css('border-width', '0.5em');
+            $(el + ' .shadow').css('border-width', '0.5em');
+        }
+        $(el + ' .num').text(percent);
+        $(el + ' .left-side').css('transform', 'rotate(' + deg + 'deg)');
+    }
+
+    // Pass in a number for the percent
+    updateDonutChart('#specificChart', 66.67, true);
+</script>
+</html>

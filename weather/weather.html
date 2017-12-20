@@ -1,0 +1,142 @@
+<!DOCTYPE>
+<html>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<head>
+    <link rel="stylesheet" href="./fontello/fontello/css/fontello.css">
+    <style>
+        body{
+            border: none;
+            outline: none;
+            padding: 0px;
+            margin: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #eeeeee;
+
+        }
+
+        * {
+            box-sizing: content-box;
+        }
+
+        /**
+         * Layout
+         */
+        .layout {
+            width: 300px;
+            height: 526px;
+            background-color: #48b2c1;
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+
+            background: red; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(red, yellow); /* Standard syntax */
+        }
+
+        .weather {
+            border: 1px solid red;
+            flex-grow: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .weather_circle {
+            border-radius: 50%;
+            border: 2px dashed #e3e3e3;
+            width: 260px;
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .weather_circle:after{
+            position:absolute;
+            content:"";
+            width:110%;
+            height:110%;
+            background:linear-gradient(142deg, #ED586A, #ED844A);
+            top:-5%;
+            left:-5%;
+            z-index:-1;
+            border-radius:50%;
+        }
+
+        .weather_icon {
+            position: absolute;
+            top: 26px;
+            left: 10px;
+            font-size: 32px;
+        }
+
+        .weather_temperature {
+            font-size: 32px;
+        }
+
+        .weather_atmosphere {
+            font-size: 20px;
+        }
+
+        .weather_velocity {
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        .weather_humidity {
+            line-height: 2px;
+            font-size: 12px;
+        }
+
+        .date {
+            border: 1px solid green;
+            flex-basis: 120px;
+            padding-top: 15px;
+            padding-left: 24px;
+
+        }
+
+        .date_week {
+            color: rgba(255,255,255, 0.5)
+        }
+
+        .date_month {
+            font-size: 24px;
+        }
+
+        .date_time {
+            display: inline-block;
+            line-height: 40px;
+            /*padding-top: 30px;*/
+            font-size: 12px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="layout">
+        <div class="weather">
+            <div class="weather_circle">
+                <div class="weather_icon"><i class="demo-icon icon-sun"></i></div>
+                <div class="weather_temperature">+ 28˚</div>
+                <div class="weather_atmosphere">Rain</div>
+                <div class="weather_velocity">Wind: N 2 mph</div>
+                <div class="weather_humidity">Humidity: 68%</div>
+            </div>
+        </div>
+        <div class="date">
+            <div class="date_week">Friday</div>
+            <div class="date_month">August, 12</div>
+            <div class="date_time">4:00 pm</div>
+        </div>
+    </div>
+</body>
+</html>
