@@ -20,6 +20,7 @@
 * [Card](https://jungyoungtai.github.io/frontend-playground/card/flex-card.html)
 
 ## Motion
+* [line](https://jungyoungtai.github.io/frontend-playground/card/motion-curve.html)
 
 ## CSS
 * [z-idnex](https://jungyoungtai.github.io/frontend-playground/css/zIndex.html)
