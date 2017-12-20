@@ -1,0 +1,132 @@
+<!DOCTYPE>
+<html>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<head>
+    <style>
+        
+    </style>
+    
+</head>
+<body>
+    
+    <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+    <script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.7/howler.min.js"></script>
+    <script>
+         document.addEventListener("DOMContentLoaded", function(event) {
+          renderMotion();
+      });
+        
+        function renderMotion() {
+            var yCurve = new MojsCurveEditor({
+                name: 'yCurve',
+            });
+            
+            var yCurveValue = 'M0, 100 C23.589897538545376, 84.18418884019219 32.325581395348834, 0 32.325581395348834, 0 C32.325581395348834, 0 35.016758096172936, 23.506665323999517 48.372093023255815, 25 C57.3088232991759, 25.064763247429063 61.86046511627907, 0 61.86046511627907, 0 C61.86046511627907, 0 63.50498338870432, 11 75, 15 C87.42524916943522, 10.428571428571432 85, 0 85, 0 C85, 0 88.14631489395599, 7.055558764253435 93.36515513126491, 7.285714285714286 C98.811003194516, 7.230155521460852 100, 0 100, 0';
+            
+            var cYCurve = new MojsCurveEditor({
+                name: 'cYCurve2',
+            });
+            
+            var line = new mojs.Shape({
+                shape: 'line',
+                width: 150,
+                strokeDasharray:  3,
+                angle: 90,
+                top: '20%',
+                fill: 'none',
+                stroke: '#50C2FF',
+                strokeWidth: 3,
+                //y: {[500]: 500, curve: yCurve.getEasing()},
+                y: {[500]: 500, curve: yCurveValue},
+                duration: 2500
+            }).then({
+                x: {0: 300},
+                y: {500: 500},
+                angle: { 90: 180 },
+                strokeWidth:    { 3 : 0 },
+                stroke:         { 'magenta' : 'yellow'  }
+            });
+            
+            /*
+            var cYCurve = new MojsCurveEditor({
+                name: 'cYCurve',
+            });
+           
+            
+            
+            var cline = new mojs.Shape({
+                shape: 'line',
+                radius:       100,
+                strokeDasharray:  3,
+                angle: 90,
+                top: '80%',
+                fill: 'none',
+                stroke: 'red',
+                x: {0: 300},
+                y: {[-150]: -150, curve: cYCurve.getEasing()},
+                duration: 2000
+            });
+            
+            
+           
+            var swirl = new mojs.ShapeSwirl({
+                  //fill:           'cyan',
+                  y:              { 0: -150 },
+                  x: {0: 300},
+                  radius:         8,
+                  swirlSize:      35,
+                  swirlFrequency: 4, 
+                  duration:       1000,
+                  direction:       -1,
+                  stroke: 'red',
+                  delay: 2500,
+            });
+            
+            var COLORS = {
+  RED:      '#FD5061',
+  YELLOW:   '#FFCEA5',
+  BLACK:    '#29363B',
+  WHITE:    'white',
+  VINOUS:   '#A50710'
+}
+            
+            const burst1 = new mojs.Burst({
+  count:    5,
+  radius:   { 50: 250 },
+  children: {
+    fill:   'white',
+    shape:  'line',
+    stroke: [ COLORS.WHITE, COLORS.VINOUS ],
+    strokeWidth: 12, 
+    radius: 'rand(30, 60)',
+    radiusY: 0,
+    scale: { 1: 0 },
+    // duration: 800,
+    pathScale: 'rand(.5, 1)',
+    isForce3d: true,
+    degreeShift: 'rand(-360, 360)',
+    // angle: 90
+  }
+});
+*/
+            
+            var timeline = new mojs.Timeline({ delay: 0 });
+            timeline.add(line);
+            
+            new MojsPlayer({add: timeline, isPlaying: true, isSaveState: false});
+            
+            var sound = new Howl({
+                src: ['./sounds/bells-1-half.mp3']
+            });
+            var soundInterval = sound.play();
+            
+            //window.setInterval(function(){ soundInterval.replay() }, 4300);
+            
+            //setInterval(() => { soundInterval.replay() }, 4300);
+        }
+      
+    </script>
+</body>
+</html>
