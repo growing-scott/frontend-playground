@@ -14,35 +14,51 @@
     <script src="https://cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.7/howler.min.js"></script>
     <script>
-         document.addEventListener("DOMContentLoaded", function(event) {
+        document.addEventListener("DOMContentLoaded", function(event) {
           renderMotion();
-      });
-
+        });
+        
         function renderMotion() {
             //var yCurve = new MojsCurveEditor({ name: 'yCurve',});
-            //var cYCurve = new MojsCurveEditor({ name: 'cYCurve2',});
+            //var cYCurve = new MojsCurveEditor({ name: 'cYCurve3'});
 
             var yCurveValue = 'M0, 100 C23.589897538545376, 84.18418884019219 32.325581395348834, 0 32.325581395348834, 0 C32.325581395348834, 0 35.016758096172936, 23.506665323999517 48.372093023255815, 25 C57.3088232991759, 25.064763247429063 61.86046511627907, 0 61.86046511627907, 0 C61.86046511627907, 0 63.50498338870432, 11 75, 15 C87.42524916943522, 10.428571428571432 85, 0 85, 0 C85, 0 88.14631489395599, 7.055558764253435 93.36515513126491, 7.285714285714286 C98.811003194516, 7.230155521460852 100, 0 100, 0';
+            
+            //var cYcurveValue = 'M0, 100 C0, 100 -1.4122743751434257, 0.07642860383791215 15, 0 C31.412274375143426, -0.07642860383791016 32.857142857142854, 100 32.857142857142854, 100 C32.857142857142854, 100 42.07571148249673, 64.60071849054063 50, 52.714285714285715 C70.21000280321755, 83.39928150945936 80, 100 80, 100 C80, 100 98.46990312590647, 104.53009687409353 100, 87.28571428571429'
 
             var line = new mojs.Shape({
-                shape: 'line',
-                width: 150,
-                strokeDasharray:  3,
-                angle: 90,
+                shape: 'circle',
+                radius: 5,
                 top: '20%',
                 fill: 'none',
-                stroke: '#50C2FF',
-                strokeWidth: 3,
+                stroke: { 'yellow' : '#50C2FF'  },
+                scaleX:       { 10 : 1 },
+                strokeWidth: { 10 : 3 },
                 //y: {[500]: 500, curve: yCurve.getEasing()},
                 y: {[500]: 500, curve: yCurveValue},
                 duration: 2500
-            }).then({
-                x: {0: 300},
+            })
+            .then({
+                x: {0: 500},
                 y: {500: 500},
-                angle: { 90: 180 },
-                strokeWidth:    { 3 : 0 },
-                stroke:         { 'magenta' : 'yellow'  }
+                strokeWidth: { 3 : 0 },
+                stroke: { 'magenta' : 'yellow'  }
             });
+            
+            /*
+            var line2 = new mojs.Shape({
+                shape: 'circle',
+                radius: 10,
+                x: {0: 200},
+                top: '50%',
+                y: {[0]: -200, curve: cYCurve.getEasing()},
+                fill: 'none',
+                stroke: '#50C2FF',
+                strokeWidth: 5,
+                stroke: { 'magenta' : 'yellow'  },
+                duration: 2000
+            })
+            */
 
             /*
             var cYCurve = new MojsCurveEditor({
